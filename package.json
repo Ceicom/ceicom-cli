@@ -1,0 +1,19 @@
+{
+  "name": "ceicom-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "ceicom": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^2.19.0",
+    "download-git-repo": "^1.1.0",
+    "fs-extra": "^7.0.0"
+  }
+}
