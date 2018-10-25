@@ -7,7 +7,7 @@ const downloadRepo = require('download-git-repo');
 const { exec, spawn } = require('child_process');
 
 // Classes
-const Generator = require('./generator');
+const Generator = require('./lib/generator');
 
 const config = {
     gitDomain: 'github',
