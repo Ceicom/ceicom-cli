@@ -2,6 +2,8 @@
 
 // Modules
 const commander = require('commander');
+const { red } = require('chalk');
+const log = console.log;
 
 // Classes
 const Starter = require('./lib/starter');
@@ -17,7 +19,7 @@ const config = {
 
 function newProject(projectName) {
     if (!projectName) {
-        console.log('you need to pass a project name!');
+        log('you need to pass a project name!');
         return;
     }
 
@@ -25,14 +27,18 @@ function newProject(projectName) {
     starter.newProject(projectName);
 }
 
-function generateFiles(type, value) {
+function generateFiles(type, value, options) {
     if (!config.avaibleTypes.includes(type)) {
-        console.log('you need to pass a valid type!');
-        console.log(`avaible types: ${config.avaibleTypes.join(', ')}`);
+        log(red('you need to pass a valid type!'));
+        log(`avaible types: ${config.avaibleTypes.join(', ')}`);
         return;
     }
 
     const generator = new Generator(config);
+    if (type === 'webform') {
+        generator.webform(value, false, options.filename);
+        return;
+    }
     generator[type](value);
 }
 
@@ -48,11 +54,12 @@ commander.command('new <projectName>')
 // Generate Things
 commander.command('generate <type> <value>')
     .alias('g')
-    .description(`generate new files, avaible options: ${config.avaibleTypes.join(', ')}`)
+    .option('--filename [filename]', 'custom filename')
+    .description(`generate new files, avaible types: ${config.avaibleTypes.join(', ')}`)
     .action(generateFiles);
 
 // Commands that not exist
 commander.command('*')
-    .action(env => console.log(`command "${env}" not exist, use --help for avaible commands`));
+    .action(env => log(`command "${env}" not exist, use --help for avaible commands`));
 
 commander.parse(process.argv);

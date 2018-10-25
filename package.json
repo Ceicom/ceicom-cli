@@ -12,6 +12,7 @@
     "ceicom": "./index.js"
   },
   "dependencies": {
+    "chalk": "^2.4.1",
     "commander": "^2.19.0",
     "download-git-repo": "^1.1.0",
     "fs-extra": "^7.0.0"
