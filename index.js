@@ -1,20 +1,29 @@
 #! /usr/bin/env node
 
 // Modules
-const fs = require('fs-extra');
 const commander = require('commander');
-const downloadRepo = require('download-git-repo');
-const { exec, spawn } = require('child_process');
 
 // Classes
+const Starter = require('./lib/starter');
 const Generator = require('./lib/generator');
 
 const config = {
     gitDomain: 'github',
+    // TODO: change to Ceicom/html_boilerplate when finished
     boilerplateRepo: 'Dimebag03/html_boilerplate',
     jsInitFolder: './dev/js',
     avaibleTypes: ['component', 'page', 'template', 'ux', 'less', 'webform', 'combo']
 };
+
+function newProject(projectName) {
+    if (!projectName) {
+        console.log('you need to pass a project name!');
+        return;
+    }
+
+    const starter = new Starter(config);
+    starter.newProject(projectName);
+}
 
 function generateFiles(type, value) {
     if (!config.avaibleTypes.includes(type)) {
@@ -25,40 +34,6 @@ function generateFiles(type, value) {
 
     const generator = new Generator(config);
     generator[type](value);
-}
-
-function newProject(projectName) {
-    if (!projectName) {
-        console.log('you need to pass a project name');
-        return;
-    }
-
-    const exists = fs.pathExistsSync(`./${projectName}`);
-    if (exists) {
-        console.log('alredy exist a project with the given name');
-        return;
-    }
-
-    console.log('downloading git repository...');
-    downloadRepo(config.boilerplateRepo, `./${projectName}`, err => {
-        if (err) throw err;
-        console.log('finished download');
-        console.log('starting yarn install...');
-
-        const yarnCmd = spawn('yarn.cmd', ['install'], { cwd: `./${projectName}` });
-
-        yarnCmd.stdout.on('data', data => console.log(data.toString().replace(/[\n\r]/g, '')));
-
-        yarnCmd.on('close', () => {
-            fs.ensureDirSync(`./${projectName}/arquivos`);
-            exec('attrib +h "node_modules"', { cwd: `./${projectName}` });
-            exec('attrib +h "arquivos"', { cwd: `./${projectName}` });
-
-            console.log('\nprocess finish!');
-            console.log(`use the command "cd ${projectName}" to access your project`);
-            console.log('you also will need to start your git repository (git init)');
-        });
-    });
 }
 
 // Version
