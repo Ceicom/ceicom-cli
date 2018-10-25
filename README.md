@@ -58,6 +58,6 @@ Altera o nome padrão do arquivo
 ### combo
 Esse carinha foda ai executa todos os outros tipos, criara um arquivo nas pastas `./dev/js/pages`, `./dev/js/templates`, `./dev/less/page` e `./pages`.
 
-## Maintainers
+## Mantenedores
 
 - [Emanoel Queiroz](https://github.com/Dimebag03)
