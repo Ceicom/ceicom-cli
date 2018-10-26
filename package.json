@@ -1,15 +1,19 @@
 {
   "name": "ceicom-cli",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Command line tool to speed up development",
+  "author": "Emanoel A. de Queiroz",
+  "main": "./cli.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ceicom/ceicom-cli.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
   "license": "ISC",
   "bin": {
-    "ceicom": "./index.js"
+    "ceicom": "./cli.js"
   },
   "dependencies": {
     "chalk": "^2.4.1",

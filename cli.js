@@ -3,11 +3,11 @@
 // Modules
 const commander = require('commander');
 const { red } = require('chalk');
-const log = console.log;
 
 // Classes
 const Starter = require('./lib/starter');
 const Generator = require('./lib/generator');
+const { log } = require('./lib/utils');
 
 const config = {
     gitDomain: 'github',
