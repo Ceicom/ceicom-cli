@@ -1,6 +1,6 @@
 # ceicom-cli
 
-> ceicom-cli aligéra o **nosso** desenvolvimento
+> o *ceicom-cli* é uma interface de linha de comando (***CLI - Command Line Interface***) que aligéra e , ao mesmo tempo, ajuda no nosso desenvolvimento utilizando de comandos para a criação de projetos e arquivos.
 
 ## Beneficios de usar o `ceicom-cli`
 
