@@ -5,7 +5,7 @@
 ## Beneficios de usar o `ceicom-cli`
 
 - Velocidade
-- Ajuda no manter o padrão de desenvolvimento
+- Ajuda manter o padrão de desenvolvimento
 
 ## Instalar
 
