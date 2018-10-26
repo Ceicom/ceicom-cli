@@ -18,7 +18,7 @@ $ npm install ceicom-cli
 ```
 $ ceicom new <projectname>
 ```
-Esse comando faz o download do reporitório [`html_boilerplate`](https://github.com/Ceicom/html_boilerplate) do git, instala as dependencias com o `yarn` e deixa oculta as pastas `node_modules` e `arquivos`.
+Esse comando faz o download do reporitório [`html_boilerplate`](https://github.com/Ceicom/html_boilerplate) do git, instala as dependencias com o `yarn` e deixa oculta as pastas `node_modules` e `arquivos`, tudo de vereda, sem precisar o programador fazer essas pira.
 
 ### generate
   
