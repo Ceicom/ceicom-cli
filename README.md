@@ -39,6 +39,12 @@ Esse comando gera um arquivo com base nos arquivos `model` presentes no boilerpl
 ### page
 Cria um arquivo na pasta `./dev/js` pegando o conteudo do `model.js` da pasta `/pages`.
 
+#### options
+
+Nome: `--template`<br>
+
+Faz com que seja criado o template com base nas informações passadas para o comando page
+
 ### template
 Cria um arquivo na pasta `./dev/js` pegando o conteudo do `model.js` da pasta `/templates`.
 
@@ -50,7 +56,7 @@ Cria um arquivo na pasta `./pages` pegando o conteudo do `model.aspx` e `model.a
 
 #### options
 
-Nome: `--filename`<br>
+Nome: `--filename=<filename>`<br>
 Padrão: `Default.aspx`
 
 Altera o nome padrão do arquivo
