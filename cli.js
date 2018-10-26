@@ -7,7 +7,9 @@ const { red } = require('chalk');
 // Classes
 const Starter = require('./lib/starter');
 const Generator = require('./lib/generator');
+const Verification = require('./lib/verification');
 const { log } = require('./lib/utils');
+const logger = require('./lib/logger');
 
 const config = {
     gitDomain: 'github',
@@ -19,7 +21,7 @@ const config = {
 
 function newProject(projectName) {
     if (!projectName) {
-        log('you need to pass a project name!');
+        logger.warn('you need to pass a project name!');
         return;
     }
 
@@ -27,25 +29,21 @@ function newProject(projectName) {
     starter.newProject(projectName);
 }
 
-function generateFiles(type, value, options) {
+function generateFiles(type, name, options) {
+    const verification = new Verification();
+    if (!verification.isProjectValid()) return;
+
     if (!config.avaibleTypes.includes(type)) {
-        log(red('you need to pass a valid type!'));
-        log(`avaible types: ${config.avaibleTypes.join(', ')}`);
+        logger.warn('you need to pass a valid type!');
+        logger.info(`avaible types: ${config.avaibleTypes.join(', ')}`);
         return;
     }
 
-    const generator = new Generator(config);
-    if (type === 'webform') {
-        generator.webform(value, false, options.filename);
-        return;
-    }
+    const generator = new Generator(config, {
+        type, name, options
+    });
 
-    if (type === 'page') {
-        generator.page(value, options.template);
-        return;
-    }
-
-    generator[type](value);
+    generator[type]();
 }
 
 // Version
