@@ -10,7 +10,7 @@
 ## Instalar
 
 ```
-$ npm install ceicom-cli
+$ npm i ceicom-cli -g
 ```
 ## API de uso
 ### new
