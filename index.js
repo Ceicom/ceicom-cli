@@ -14,7 +14,7 @@ const config = {
     // TODO: change to Ceicom/html_boilerplate when finished
     boilerplateRepo: 'Dimebag03/html_boilerplate',
     jsInitFolder: './dev/js',
-    avaibleTypes: ['component', 'page', 'template', 'ux', 'less', 'webform', 'combo']
+    avaibleTypes: ['page', 'template', 'less', 'webform', 'combo']
 };
 
 function newProject(projectName) {
@@ -39,6 +39,12 @@ function generateFiles(type, value, options) {
         generator.webform(value, false, options.filename);
         return;
     }
+
+    if (type === 'page') {
+        generator.page(value, options.template);
+        return;
+    }
+
     generator[type](value);
 }
 
@@ -54,7 +60,8 @@ commander.command('new <projectName>')
 // Generate Things
 commander.command('generate <type> <value>')
     .alias('g')
-    .option('--filename [filename]', 'custom filename')
+    .option('--filename [filename]', 'custom webform filename')
+    .option('--template', 'do template aside page')
     .description(`generate new files, avaible types: ${config.avaibleTypes.join(', ')}`)
     .action(generateFiles);
 
