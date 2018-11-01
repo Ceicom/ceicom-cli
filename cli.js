@@ -13,8 +13,7 @@ const logger = require('./lib/logger');
 
 const config = {
     gitDomain: 'github',
-    // TODO: change to Ceicom/html_boilerplate when finished
-    boilerplateRepo: 'Dimebag03/html_boilerplate',
+    boilerplateRepo: 'Ceicom/html_boilerplate',
     jsInitFolder: './dev/js',
     avaibleTypes: ['page', 'template', 'less', 'webform', 'combo']
 };
