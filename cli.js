@@ -2,7 +2,6 @@
 
 // Modules
 const commander = require('commander');
-const { red } = require('chalk');
 
 // Classes
 const Starter = require('./lib/starter');
@@ -37,7 +36,8 @@ function generateFiles(type, name, options) {
         logger.info(`avaible types: ${config.avaibleTypes.join(', ')}`);
         return;
     }
-
+    
+    name = name.replace(/\.\w*/g, '');
     const generator = new Generator(config, {
         type, name, options
     });
