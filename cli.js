@@ -4,6 +4,7 @@
 const commander = require('commander');
 
 // Classes
+const pkgJson = require('./package.json');
 const Starter = require('./lib/starter');
 const Generator = require('./lib/generator');
 const Verification = require('./lib/verification');
@@ -46,7 +47,7 @@ function generateFiles(type, name, options) {
 }
 
 // Version
-commander.version('0.0.1', '-v, --version');
+commander.version(pkgJson.version, '-v, --version');
 
 // Start a new project
 commander.command('new <projectName>')
