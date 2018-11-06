@@ -39,10 +39,10 @@ function generateFiles(type, name, options) {
     
     name = name.replace(/\.\w*/g, '');
     const generator = new Generator(config, {
-        type, name, options
+        type, options
     });
 
-    generator[type]();
+    generator[type](name);
 }
 
 // Version
