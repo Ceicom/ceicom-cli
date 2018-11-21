@@ -1,6 +1,6 @@
 {
   "name": "ceicom-cli",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Command line tool to speed up development",
   "author": "Emanoel A. de Queiroz",
   "main": "./cli.js",
