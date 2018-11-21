@@ -65,6 +65,6 @@ commander.command('generate <type> <value>')
 
 // Commands that not exist
 commander.command('*')
-    .action(env => log(`command "${env}" not exist, use --help for avaible commands`));
+    .action(env => logger.warn(`command "${env}" not exist, use --help for avaible commands`));
 
 commander.parse(process.argv);
