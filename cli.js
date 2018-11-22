@@ -8,7 +8,6 @@ const pkgJson = require('./package.json');
 const Starter = require('./lib/starter');
 const Generator = require('./lib/generator');
 const Verification = require('./lib/verification');
-const { log } = require('./lib/utils');
 const logger = require('./lib/logger');
 
 const config = {
