@@ -2,6 +2,8 @@
 
 // Modules
 const commander = require('commander');
+const updateNotifier = require('update-notifier');
+const pkg = require('./package.json');
 
 // Classes
 const pkgJson = require('./package.json');
@@ -16,6 +18,8 @@ const config = {
     jsInitFolder: './dev/js',
     avaibleTypes: ['page', 'template', 'less', 'webform', 'combo']
 };
+
+updateNotifier({ pkg, isGlobal: true }).notify();
 
 function newProject(projectName) {
     if (!projectName) {
